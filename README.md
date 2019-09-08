@@ -6,17 +6,17 @@
 
 ## usage
 
-`\$ touch .env`
+`$ touch .env`
 
 ```:.env
 RESAS_API_KEY=[YOUR_RESAS_API_KEY]
 
 ```
 
-`\$ yarn install`
+`$ yarn install`
 
 // start dev server
-`\$ yarn dev`
+`$ yarn dev`
 
 ## script
 
