@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import usePrefectures from "../../lib/hooks/usePrefectures";
+import { Prefecture } from "../../lib/hooks/useResas";
 import styleValiable from "../../lib/styleValiable";
 
 const Wrapper = styled.div``;
@@ -63,8 +63,13 @@ const List = styled.ul`
 
 const Loding = styled.div``;
 
-const CheckboxList = () => {
-  const prefectures = usePrefectures();
+interface Props {
+  prefectures: Prefecture[] | null;
+  updataCompositions: (id: number, prefName: string) => void;
+}
+
+const CheckboxList: React.FC<Props> = props => {
+  const { prefectures, updataCompositions } = props;
 
   return (
     <>
@@ -74,9 +79,15 @@ const CheckboxList = () => {
         </Title>
         <List>
           {prefectures ? (
-            prefectures.map((item: any) => (
+            prefectures.map((item: Prefecture) => (
               <li key={item.prefCode}>
-                <input type="checkbox" id={item.prefName} />
+                <input
+                  type="checkbox"
+                  id={item.prefName}
+                  onChange={() =>
+                    updataCompositions(item.prefCode, item.prefName)
+                  }
+                />
                 <label htmlFor={item.prefName}>{item.prefName}</label>
               </li>
             ))

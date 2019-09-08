@@ -1,8 +1,10 @@
 import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
+import { usePrefectures, useComposition } from "../lib/hooks/useResas";
 // components
 import Header from "./parts/Header";
 import Checkboxlist from "./parts/CheckboxList";
+import Graph from "./parts/Graph";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -22,18 +24,28 @@ const Wrapper = styled.div`
 `;
 
 const Body = styled.div`
-  margin: 2rem 4rem;
+  height: calc(100% - 50px);
+  margin: 0 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 `;
 
 const App: React.FC = () => {
+  const prefectures = usePrefectures();
+  const { compositions, updataCompositions } = useComposition();
+
   return (
     <>
       <Wrapper>
         <GlobalStyle />
         <Header />
         <Body>
-          <Checkboxlist />
-          <div>graph</div>
+          <Checkboxlist
+            prefectures={prefectures}
+            updataCompositions={updataCompositions}
+          />
+          <Graph compositions={compositions} />
         </Body>
       </Wrapper>
     </>

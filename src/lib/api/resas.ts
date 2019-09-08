@@ -25,3 +25,8 @@ export const getPrefectures = (): AxiosPromise<any> =>
   genCli()
     .get("/v1/prefectures")
     .catch(errorHandler);
+
+export const getComposition = (prefCode: number): AxiosPromise<any> =>
+  genCli()
+    .get(`/v1/population/composition/perYear?cityCode=-&prefCode=${prefCode}`)
+    .catch(errorHandler);
