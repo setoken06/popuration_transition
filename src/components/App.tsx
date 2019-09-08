@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Wrapper = styled.div`
-  height: 100vh;
+  min-height: 100vh;
 `;
 
 const Body = styled.div`

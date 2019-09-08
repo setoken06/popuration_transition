@@ -4,7 +4,9 @@ import styleValiable from "../../lib/styleValiable";
 import HighCharts from "highcharts";
 import HighChartsReact from "highcharts-react-official";
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  margin-top: 2rem;
+`;
 
 const Title = styled.div`
   height: 3rem;
@@ -20,7 +22,16 @@ const Title = styled.div`
   }
 `;
 
-// const Loding = styled.div``;
+const Substitute = styled.div`
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: #777;
+`;
 
 interface Props {
   compositions: any[] | null;
@@ -28,8 +39,6 @@ interface Props {
 
 const Graph: React.FC<Props> = props => {
   const { compositions } = props;
-
-  console.log(compositions);
 
   const options: Highcharts.Options = {
     title: {
@@ -50,7 +59,11 @@ const Graph: React.FC<Props> = props => {
         <Title>
           <p>人口推移</p>
         </Title>
-        <HighChartsReact highcharts={HighCharts} options={options} />
+        {compositions ? (
+          <HighChartsReact highcharts={HighCharts} options={options} />
+        ) : (
+          <Substitute>都道府県を選択してください</Substitute>
+        )}
       </Wrapper>
     </>
   );

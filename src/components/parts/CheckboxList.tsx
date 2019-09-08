@@ -3,7 +3,9 @@ import styled from "styled-components";
 import { Prefecture } from "../../lib/hooks/useResas";
 import styleValiable from "../../lib/styleValiable";
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  margin-top: 2rem;
+`;
 
 const Title = styled.div`
   height: 3rem;
@@ -61,7 +63,13 @@ const List = styled.ul`
   }
 `;
 
-const Loding = styled.div``;
+const Loding = styled.div`
+  height: 14rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 interface Props {
   prefectures: Prefecture[] | null;
