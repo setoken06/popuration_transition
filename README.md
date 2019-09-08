@@ -3,6 +3,7 @@
 ## description
 
 人口推移を示したアプリケーションです
+![demo](https://user-images.githubusercontent.com/43603215/64488309-62b2a600-d281-11e9-8ca8-f47edce4833b.gif)
 
 ## usage
 
